@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plots",
+  "info": {
+    "singularName": "plot",
+    "pluralName": "plots",
+    "displayName": "plots_api",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "plot_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "layer": {
+      "type": "decimal"
+    },
+    "points": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::point.point"
+    }
+  }
+}
