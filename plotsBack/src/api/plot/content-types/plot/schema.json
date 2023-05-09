@@ -21,9 +21,7 @@
       "type": "decimal"
     },
     "points": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::point.point"
+      "type": "json"
     }
   }
 }
