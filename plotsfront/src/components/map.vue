@@ -14,6 +14,11 @@ export default {
     return {
       maps: null,
       plots: [],
+      newPlot:{
+        plot_id: '',
+        layer: 0,
+        points: []
+      }
     }
   },
   async mounted () {
@@ -28,7 +33,7 @@ export default {
     this.maps.on('load', () => {
       this.addPlots()
     })
-    axios.get('http://localhost:1337/api/plots?populate=points', {
+    axios.get('http://localhost:1337/api/plots', {
       headers: {
         Authorization: 'Bearer e415b0c58749f47b0a303aad4b30b13ed53f39b53db271e6d50f1bb8ef61ba8f29e8d92346df6eae7eda852c2bd9e3c895451913e67439bd2101052fa7348466bd775e54747a273b84222bc23137000bf29f823530f54fece46b4af9d18ad05d1aa9d3b763e392e8970c4be563f0483a2af68a73e1175c6dbb920b92827e3f05'
       }
@@ -44,8 +49,7 @@ export default {
   methods: {
     addPlots() {
       this.plots.forEach(plot => {
-        const coordinates = plot.attributes.points.data.map(point => [point.attributes.longitude, point.attributes.latitude])
-        console.log(plot.attributes.points.data)
+        const coordinates = plot.attributes.points.map(point => [point.longitude, point.latitude])
         if (!this.maps.getLayer(plot.attributes.plot_id)) { 
         this.maps.addLayer({
           id: plot.attributes.plot_id, 
