@@ -30,7 +30,7 @@ props:{
 
 .btn:disabled
   background-color: #4453DC
-  cursor: none
+  cursor: default
 
 .btn:hover
   background-color: #00109F
