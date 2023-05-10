@@ -164,6 +164,7 @@ export default {
         });
       this.addPlots();
       this.removeMarkers();
+      this.saveIsDisabled = true
     },
   },
 };
