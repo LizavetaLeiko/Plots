@@ -156,7 +156,6 @@ export default {
         )
         .then((response) => {
           console.log(response.data);
-          alert("Saved!");
           this.addingPlot = false;
         })
         .catch((error) => {
